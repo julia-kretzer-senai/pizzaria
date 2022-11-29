@@ -1,7 +1,6 @@
 const express = require('express')
 const body = require('body-parser')
 const sql = require('mysql2')
-const { text } = require('body-parser')
 
 const app = express()
 const port = 3000
@@ -9,7 +8,8 @@ const port = 3000
 app.use(express.static(__dirname + '/'))
 app.use(express.static('public'))
 
-app.use(body.urlencoded({extended: false}))
+app.use(body.json())
+app.use(body.urlencoded({extended: true}))
 
 const connection = sql.createConnection ({
     host: 'localhost',
@@ -42,7 +42,7 @@ app.get('/cadastroProduto', (req,res) => {
 
 app.post('/cadastroProduto', (req,res) => {
     console.log(req.body)
-    connection.query('insert into produto (nome, tipo, quantidade) values (?,?,?) ',
+    connection.query('insert into produto (nome, tipo, quantidade) values (?,?,?)',
     [req.body.nomeProduto, req.body.tipoProduto, req.body.quantidade])
 })
 
@@ -50,10 +50,18 @@ app.get('/pizza', (req,res) => {
     res.sendFile(__dirname + '/pizzas.html')
 })
 
-app.post('/pizza', (req,res) => {
+var tamanho, sabor1, sabor2, sabor3, sabor4 
 
+app.post('/pizza', (req,res) => {
+    console.log(req.body.tamanho, req.body.sabor1, req.body.sabor2, req.body.sabor3, req.body.sabor4)
+    tamanho = req.body.tamanho
+    sabor1 = req.body.sabor1
+    sabor2 = req.body.sabor2
+    sabor3 = req.body.sabor3
+    sabor4 = req.body.sabor4 // funcionando
     res.redirect('/cadastro')
 })
+
 
 app.get('/cadastro', (req,res) => {
     res.sendFile(__dirname + '/cadastro-cliente.html')
@@ -64,26 +72,18 @@ app.post('/cadastro', (req,res) => {
     [req.body.cpf, req.body.nome, req.body.sobrenome, req.body.nascimento, req.body.cep, req.body.uf, 
     req.body.localidade, req.body.bairro, req.body.logradouro, req.body.num, req.body.complemento]);
 
+    console.log(tamanho, sabor1, sabor2, sabor3, sabor4) // funcionando, precisa inserir na tabela pedido o cpf do cliente junto com as variaveis da pizza
     res.redirect('/finalizar')
 })
 
 app.post('/consultaPedido', (req,res) => {
     res.redirect('/consultarPedidos');
-
 })
-
 
 app.get('/consultarPedidos', (req,res) => {
 
     connection.query('select * from cliente', (err,results,fields) => {
         res.json(results)
-        var tabela = ''
-        tabela += `<table>`
-        tabela += `<tr><td>cod_barras</td><td>nome</td><td>tipo</td><td>quantidade</td></tr>`
-        for(var x in results) {
-            tabela += `<tr><td>${results[x].cod_barras}</td><td>${results[x].nome}</td><td>${results[x].tipo}</td><td>${results[x].quantidade}</td></tr>`
-        }
-        tabela += `</table>`
         })
 })
 
