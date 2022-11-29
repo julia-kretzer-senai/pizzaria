@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1 id="title-pedido">Pedido</h1>
+        <form action="pizza" method="post" id="pizzas">
+            <h2>Selecione o tamanho da pizza:</h2>
+            <div class="tamanho-container">
+                <div class="radios">
+                    <input type="radio" name="tamanho" id="p">
+                    <input type="radio" name="tamanho" id="m">
+                    <input type="radio" name="tamanho" id="g">
+                    <input type="radio" name="tamanho" id="gg">
+                </div>
+                <div class="labels">
+                    <label for="p">P - 1 sabor</label>
+                    <label for="m">M - 2 sabores</label>
+                    <label for="g">G - 3 sabores</label>
+                    <label for="gg">GG - 4 sabores</label>
+                </div>
+            </div>
+            <h2>Selecione os sabores:</h2>
+            <div class="selects">
+                <select name="sabor1" id="sabor1">
+                    <option value="default" default>Sabor 1</option>
+                    <option value="calabresa">Calabresa</option>
+                    <option value="mussarela">Mussarela</option>
+                    <option value="alcatra">Alcatra</option>
+                    <option value="marguerita">Marguerita</option>
+                    <option value="portuguesa">Portuguesa</option>
+                </select>
+                <select name="sabor2" id="sabor2">
+                    <option value="default" default>Sabor 2</option>
+                    <option value="calabresa">Calabresa</option>
+                    <option value="mussarela">Mussarela</option>
+                    <option value="alcatra">Alcatra</option>
+                    <option value="marguerita">Marguerita</option>
+                    <option value="portuguesa">Portuguesa</option>
+                </select>
+                <select name="sabor3" id="sabor3">
+                    <option value="default" default>Sabor 3</option>
+                    <option value="calabresa">Calabresa</option>
+                    <option value="mussarela">Mussarela</option>
+                    <option value="alcatra">Alcatra</option>
+                    <option value="marguerita">Marguerita</option>
+                    <option value="portuguesa">Portuguesa</option>
+                </select>
+                <select name="sabor4" id="sabor4">
+                    <option value="default" default>Sabor 4</option>
+                    <option value="calabresa">Calabresa</option>
+                    <option value="mussarela">Mussarela</option>
+                    <option value="alcatra">Alcatra</option>
+                    <option value="marguerita">Marguerita</option>
+                    <option value="portuguesa">Portuguesa</option>
+                </select>
+            </div>
+            <input type="submit" value="Continuar" id="submit6">
+        </form>
+    </main>
+</body>
+</html>

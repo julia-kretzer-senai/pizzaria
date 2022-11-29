@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <main>
+        <h1>Cadastro</h1>
+        <form action="cadastro" method="post">
+            <h2>Dados pessoais</h2>
+            <div id="dados">
+                <input type="text" name="nome" id="nome" placeholder="nome">
+                <input type="text" name="sobrenome" id="sobrenome" placeholder="sobrenome">
+                <input type="date" name="nascimento" id="nascimento">
+                <input type="text" name="cpf" id="cpf" placeholder="cpf">
+            </div>
+            <h2>Endereço</h2>
+            <div id="dados-endereco">
+                <input type="text" name="cep" id="cep" placeholder="cep" required>
+                <input type="text" name="uf" id="uf" placeholder="estado" required>
+                <input type="text" name="localidade" id="localidade" placeholder="cidade" required>
+                <input type="text" name="bairro" id="bairro" placeholder="bairro" required>
+                <input type="text" name="logradouro" id="logradouro" placeholder="rua" required>
+                <input type="text" name="num" id="num" placeholder="número">
+                <input type="text" name="complemento" id="complemento" placeholder="complemento">
+            </div>
+            <input type="submit" value="continuar" id="submit7">
+        </form>
+    </main>
+</body>
+</html>
